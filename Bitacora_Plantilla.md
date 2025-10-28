@@ -1,12 +1,11 @@
 # **`Bitácora de (Nombre del Proyecto)`**
 
-`Tecnología de los Sistemas de Información - Seminario Avanzado`  
-`Ciclo Lectivo 2025`
+Whity
 
 ## **`Integrante/s`**
 
-- `Nombre 1`  
-- `Nombre 2`
+- Baranek Joaquin
+- Yonatan Szczupak
 
 
 ---
@@ -14,22 +13,19 @@
 
 ## **`Semana 1`**
 
-**`Fecha:`**
+**`Fecha: 28/8
 
 **`Actividades Realizadas:`**
 
-- `Actividad 1`  
-- `Actividad 2`
+- Definir componentes
 
 **`Dificultades:`**
 
-- `Dificultad 1`  
-- `Dificultad 2`
+- Decidir si haciamos un IR frontal y dos laterales o bastaba con dos laterales
 
 **`Próximos Pasos:`**
 
-- `Próximo paso 1`  
-- `Próximo paso 2`
+- Averiguar como funcaban los sensores
 
 
 ---
@@ -37,19 +33,36 @@
 
 ## **`Semana 2`**
 
-**`Fecha:`**
+**`Fecha: 11/9
 
 **`Actividades Realizadas:`**
 
-- `Actividad 1`  
-- `Actividad 2`
+-Investigar sobre IR y SUS
+-Diseño del algoritmo primitivo
 
 **`Dificultades:`**
 
-- `Dificultad 1`  
-- `Dificultad 2`
+-Nunca habiamos trabajado con IR y US
 
 **`Próximos Pasos:`**
 
-- `Próximo paso 1`  
-- `Próximo paso 2`
+- Hacer un pseudocodigo dentro de arduino
+
+
+## **`Semana 3`**
+
+**`Fecha: 28/10
+
+**`Actividades Realizadas:`**
+
+-Pseudocodigo sin magnitudes
+-Definir condicionamiento del infrarojo al servomotor
+
+**`Dificultades:`**
+
+-el calculo es muy exacto
+
+**`Próximos Pasos:`**
+
+- Codigo
+-Simular 
