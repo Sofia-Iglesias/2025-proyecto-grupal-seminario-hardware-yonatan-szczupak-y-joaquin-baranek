@@ -1,6 +1,6 @@
-# **`Bitácora de (Nombre del Proyecto)`**
+# **`Bitácora de Whity`**
 
-Whity
+
 
 ## **`Integrante/s`**
 
