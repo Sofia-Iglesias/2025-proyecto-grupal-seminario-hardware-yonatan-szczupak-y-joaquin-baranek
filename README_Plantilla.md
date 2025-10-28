@@ -1,6 +1,6 @@
-# **`Nombre del Proyecto`**
+# **`Whity`**
 
-Whity
+
 
 ## **`Integrante/s`**
 
