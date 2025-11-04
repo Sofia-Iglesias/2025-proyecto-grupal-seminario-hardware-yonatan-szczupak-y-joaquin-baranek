@@ -56,7 +56,7 @@
 **`Actividades Realizadas:`**
 
 -Pseudocodigo sin magnitudes
--Definir condicionamiento del infrarojo al servomotor
+-Definir condicionamiento del infrarojo al motor
 
 **`Dificultades:`**
 
@@ -65,4 +65,20 @@
 **`Próximos Pasos:`**
 
 - Codigo
--Simular 
+-Simular
+
+## **`Semana 4`**
+
+**`Fecha: 4/11
+
+**`Actividades Realizadas:`**
+
+-Simulacion
+
+**`Dificultades:`**
+
+-el ir tiene elementos de deteccion de color en tinkercad(remplazamos el ir por un potenciometro simulando la direccion a la linea)
+
+**`Próximos Pasos:`**
+
+-Terminar los cuestionarios
