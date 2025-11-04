@@ -1,1 +1,92 @@
 
+const int potPin = A0;
+const int dmotorPin = 9;
+const int imotorPin = 11;
+const int trigPin = 2; 
+const int echoPin = 3;    
+const int buzzerPin = 5;
+
+const int VM = 3; //velocidad max
+const int derecha = 184; //maximo derecha(mientras mas cerca menos rapido va su motor)
+const int izquierda = 880; //maximo izquierda('')
+const float margen = 0.05; 
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(dmotorPin, OUTPUT);
+  pinMode(imotorPin, OUTPUT);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(buzzerPin, OUTPUT);
+}
+
+void loop() {
+ 
+  float distancia = medirDistancia();
+  
+  
+  int VM2 = VM;
+  int buzzerLevel = 0;
+  
+  if (distancia > 0) {
+    if (distancia < 100) {
+      buzzerLevel = 255;
+      VM2 = 0;
+    } else if (distancia >= 100 && distancia < 200) {
+      buzzerLevel = 200;
+      VM2 = VM * (1.0/3);
+    } else if (distancia >= 200 && distancia < 300) {
+      buzzerLevel = 100;
+      VM2 = VM * (2.0/3);
+    }
+  }//frena dependiendo de cuan cerca de un abstaculo este y enciende un. buzzer
+  
+  analogWrite(buzzerPin, buzzerLevel);
+  
+  
+  int val = analogRead(potPin);//detecta si la "linea blanca" esta a la derecha o a la izquierda y centra
+  
+  int difd = val - derecha;//distancia entre el medidor y el maximo derecho
+  int difi = izquierda - val;//distancia entre el medidor y el maximo izquierdo
+
+  if (difd == 0) difd = 1;//sin division x 0
+
+  float c = (float)difi / (float)difd; //razon entre las diferencias = ratio de velocidad izq:dcha
+
+  int velD, velI;
+
+  if (c > 1.0f + margen) {//si es mayor a 1 (la linea esta a la derecha)
+    velD = (int)round((float)VM2 / c);//velocidad derecha se divide por el cociente
+    velI = VM2;//vel izq. normal
+  } else if (c < 1.0f - margen) {//si es menor a uno(la linea esta a la izquierda)
+    velI = (int)round((float)VM2 * c);//velocidad izquieda se multiplica por el cociente
+    velD = VM2;//vel dcha normal
+  } else {
+    velD = VM2;//else normal
+    velI = VM2;//else. normal
+  }
+
+  velD = constrain(velD, 0, 255);
+  velI = constrain(velI, 0, 255);
+
+  analogWrite(dmotorPin, velD);
+  analogWrite(imotorPin, velI);
+  //gira los motores de acuerdo a donde esta la "linea"(ajuste del potencimettro) y modifica la velocidad base
+  delay(300);
+}
+
+float medirDistancia() {
+  digitalWrite(trigPin, LOW);//limpia
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);//envia el pulso
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);//apaga el pulso
+  
+  long duration = pulseIn(echoPin, HIGH, 30000); // mide el tiempo q tarda echo en. recibir el sonido nuevamente
+  float distance = duration * 0.034 / 2; //distancia = (tiempo × velocidad del sonido) ÷ 2(ida y vuelta)
+  
+  if (distance > 400 || distance <= 0) {
+    return -1;
+  }
+  return distance;
+}
