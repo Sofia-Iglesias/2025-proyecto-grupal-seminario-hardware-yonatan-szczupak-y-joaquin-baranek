@@ -19,7 +19,7 @@ robot/auto que sigue una linea blanca
 
 - Sensor infrarojo x2 
 - Sensor ultrasonico frontal(para los obstaculos)
-- Boton de encendido apagado
+- switch de encendido apagado
 - Motor x 2
 - LED de estado
 - Buzzer(para los obstaculos)
