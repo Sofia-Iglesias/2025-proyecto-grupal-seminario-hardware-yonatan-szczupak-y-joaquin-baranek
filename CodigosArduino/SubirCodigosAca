@@ -7,11 +7,12 @@ const int trigPin2 = 7;
 const int echoPin2 = 8;
 const int buzzerPin = 5;
 const int switchPin = 13;
+const int ledPin = 4;
 
 const int VM = 3;
 const int derecha = 184;
 const int izquierda = 880;
-const float margen = 0.05; 
+
 
 void setup() {
   Serial.begin(9600);
@@ -23,10 +24,12 @@ void setup() {
   pinMode(echoPin2, INPUT);
   pinMode(buzzerPin, OUTPUT);
   pinMode(switchPin, INPUT_PULLUP);
+  pinMode(ledPin, OUTPUT);
 }
 
 void loop() {
   if (digitalRead(switchPin) == LOW) {
+    digitalWrite(ledPin, HIGH);
     
     float distancia = medirDistancia();
     float distancia2 = medirDistancia2();
@@ -60,10 +63,10 @@ void loop() {
 
     int velD, velI;
 
-    if (c > 1.0f + margen) {
+    if (c > 1.0f) {
       velD = (int)round((float)VM2 / c);
       velI = VM2;
-    } else if (c < 1.0f - margen) {
+    } else if (c < 1.0f ) {
       velI = (int)round((float)VM2 * c);
       velD = VM2;
     } else {
@@ -81,6 +84,7 @@ void loop() {
     analogWrite(dmotorPin, 0);
     analogWrite(imotorPin, 0);
     analogWrite(buzzerPin, 0);
+    digitalWrite(ledPin, 0);
   }
   
   delay(300);
