@@ -1,1 +1,123 @@
+const int potPin = A0;
+const int dmotorPin = 9;
+const int imotorPin = 11;
+const int trigPin = 2; 
+const int echoPin = 3;    
+const int trigPin2 = 7;
+const int echoPin2 = 8;
+const int buzzerPin = 5;
+const int switchPin = 13;
+const int ledPin = 4;
 
+const int VM = 3;
+const int derecha = 184;
+const int izquierda = 880;
+
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(dmotorPin, OUTPUT);
+  pinMode(imotorPin, OUTPUT);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(trigPin2, OUTPUT);
+  pinMode(echoPin2, INPUT);
+  pinMode(buzzerPin, OUTPUT);
+  pinMode(switchPin, INPUT_PULLUP);
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  if (digitalRead(switchPin) == LOW) {
+    digitalWrite(ledPin, HIGH);
+    
+    float distancia = medirDistancia();
+    float distancia2 = medirDistancia2();
+    
+    int VM2 = VM;
+    int buzzerLevel = 0;
+    
+    if (distancia < 0 || distancia2 < 0) {
+    } else {
+      if (distancia < 100.0 || distancia2 < 100.0) {
+        buzzerLevel = 255;
+        VM2 = 0;
+      } else if (distancia >= 100 && distancia < 200 || distancia2 >= 100 && distancia2 < 200) {
+        buzzerLevel = 200;
+        VM2 = VM * (1.0/3);
+      } else if (distancia >= 200 && distancia < 300 || distancia2 >= 200 && distancia2 < 300) {
+        buzzerLevel = 100;
+        VM2 = VM * (2.0/3);
+      }
+    }
+    
+    analogWrite(buzzerPin, buzzerLevel);
+    
+    int val = analogRead(potPin);
+    int difd = val - derecha;
+    int difi = izquierda - val;
+
+    if (difd == 0) difd = 1;
+
+    float c = (float)difi / (float)difd;
+
+    int velD, velI;
+
+    if (c > 1.0f) {
+      velD = (int)round((float)VM2 / c);
+      velI = VM2;
+    } else if (c < 1.0f ) {
+      velI = (int)round((float)VM2 * c);
+      velD = VM2;
+    } else {
+      velD = VM2;
+      velI = VM2;
+    }
+
+    velD = constrain(velD, 0, 255);
+    velI = constrain(velI, 0, 255);
+
+    analogWrite(dmotorPin, velD);
+    analogWrite(imotorPin, velI);
+    
+  } else {
+    analogWrite(dmotorPin, 0);
+    analogWrite(imotorPin, 0);
+    analogWrite(buzzerPin, 0);
+    digitalWrite(ledPin, 0);
+  }
+  
+  delay(300);
+}
+
+float medirDistancia() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  
+  long duration = pulseIn(echoPin, HIGH, 30000);
+  float distance = duration * 0.034 / 2;
+  
+  if (distance > 400 || distance <= 0) {
+    return -1;
+  }
+  return distance;
+}
+
+float medirDistancia2() {
+  digitalWrite(trigPin2, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin2, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin2, LOW);
+  
+  long duration = pulseIn(echoPin2, HIGH, 30000);
+  float distance = duration * 0.034 / 2;
+  
+  if (distance > 400 || distance <= 0) {
+    return -1;
+  }
+  return distance;
+}

@@ -1,28 +1,29 @@
-# **`Nombre del Proyecto`**
+# **`Whity`**
 
-`Tecnología de los Sistemas de Información - Seminario Avanzado`  
-`Ciclo Lectivo 2025`
+
 
 ## **`Integrante/s`**
 
-- `Nombre 1`  
-- `Nombre 2`
+- Baranek joaquin  
+- Yonatan Szczupak
 
 ## **`Objetivo`**
 
-`Breve descripción del propósito del proyecto. Completar una vez definido el proyecto.`
+transporte de elementos entre espacios de ort
 
 ## **`Descripción del Proyecto`**
 
-`Explicar en qué consiste y qué se busca lograr. Completar una vez definido el proyecto.`
+robot/auto que sigue una linea blanca
 
 ## **`Componentes`**
 
-- `Componente 1`  
-- `Componente 2`  
-- `Componente 3`
+- Sensor infrarojo x2 
+- Sensor ultrasonico frontal(para los obstaculos)
+- switch de encendido apagado
+- Motor x 2
+- LED de estado
+- Buzzer(para los obstaculos)
 
-`Completar una vez definido el proyecto.`
 
 ## **`Requisitos`**
 
@@ -34,15 +35,19 @@
 
 ## **`Etapas del proyecto`**
 ### Etapa 1:
-- `Acción 1`
-- `Acción 2`
+- Averiguar como funciona el SI
+- Averiguar como funciona el SUS
 
 ### Etapa 2:
-- `Acción 1`
-- `Acción 2`
+- Codigo con magnitudes que definimos despues
+- Definir magnitudes en el arduino(a que distancia de algo gira/para y cuanto gira cuando tiene qeu doblar para no irse de la linea)
+- Hacer que funcionen los componentes en arduino:
+  -cuando el US detecta un abstaculo, va frenando los motores y encendiendo un buzzer
+  -Que cuando algun IR detecte la linea el servo gire para ese lado 
+  
 
 ## **`Extras`**
 
-- `Extra 1`  
+- `Extra 1
 - `Extra 2`  
 - `Extra 3`

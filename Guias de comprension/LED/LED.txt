@@ -1,0 +1,37 @@
+Led
+
+Nombre del componente: (LED)
+¿Qué tipo de dispositivo es (sensor o actuador)? Explicá brevemente su función principal.
+El LED es un actuador. Su función principal es emitir luz cuando recibe corriente. En nuestro proyecto, el LED se encenderá cuando este encendido el sistema
+¿Qué tipo de señal utiliza para comunicarse con Arduino?
+Utiliza una señal digital. El Arduino envía una señal HIGH para encenderlo y una señal LOW para apagarlo. TODO A TRAVÉS DEL RESISTOR
+¿Cuál es el rango de valores que puede entregar o recibir el componente?
+El LED recibe 1 o 0
+¿Qué pines de conexión tiene el componente? Ennumerar y describir su función.
+anodo + llega la señal
+catodo - tierra
+¿Qué pin o pines de Arduino utilizan para conectarlo? ¿Por qué elegiste esos pines?
+lo conectamos a d4(resistor + señal binaria) y a gnd(tierra -)
+d4 quedo libre
+Dibujá y explicá brevemente el esquema de conexión del componente con Arduino (incluyendo resistencias si son necesarias).
+Diagrama en la fotoz
+
+
+d4 a resistor, resistor a anodo, anodo al led, led al catodo catodo a -proto, -proto a gnd
+¿Cuál es el principio de funcionamiento del componente?
+recibe un a señal binaria a traves del resistori y se enciende para transformar energia eléctrica en luminica y la energia va a tierra
+¿Utiliza alguna librería particular para programarlo?
+no
+¿Cómo se interpreta el dato de entrada o salida del componente en el programa?
+si el sistema esta prendido se enciende el led
+¿Qué limitaciones o precauciones eléctricas hay que tener en cuenta?
+uso de resistores y polaridades
+¿Cómo verificarías que el componente funciona correctamente antes de incorporarlo al proyecto final?
+enciendo el sistema y si se prende el led anda bien la configuracion de d4
+Simular en Tinkercad e incluir el link de la simulación.
+https://www.tinkercad.com/things/jP893GOnyaO-tp-whity-arduino/editel?returnTo=%2Fthings%2FjP893GOnyaO-tp-whity-arduino
+En caso de aplicar, ¿qué valor o lectura esperás obtener en la simulación si el componente funciona correctamente?
+cuando se prenda el sistema se enciende el led
+¿Cómo podría fallar el componente o cómo detectarías un mal funcionamiento en el código o en el circuito?
+explosion(no va a pasar por las medidas de seguridad que tiene ard) por mala conexion del resistor. Cuando se apaga el indicador del arduino significa que hay un corto o similar. 
+
