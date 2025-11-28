@@ -1,0 +1,50 @@
+Motor
+
+Guía de Preguntas
+Nombre del componente: Motor
+
+¿Qué tipo de dispositivo es (sensor o actuador)? Explicá brevemente su función principal.
+El motor es un actuador que transforma la energía eléctrica en mecanica en forma circular con la capacidad de hacer girar objetos anexos a su eje.
+
+¿Qué tipo de señal utiliza para comunicarse con Arduino? 
+Estos utilizan una señal analógica ya que necesitan regular sus potencias segun lo que detectan los sensores
+
+¿Cuál es el rango de valores que puede entregar o recibir el componente?
+0/255
+
+¿Qué pines de conexión tiene el componente? Ennumerar y describir su función.
+terminal 1 : polo negativo(sale la señal a gnd)
+terminal 2: polo +(llega la señal analogica desde D9)
+¿Qué pin o pines de Arduino utilizan para conectarlo? ¿Por qué elegiste esos pines?
+9 y 10 (analogicos comodos)
+
+Dibujá y explicá brevemente el esquema de conexión del componente con Arduino (incluyendo resistencias si son necesarias).
+
+Dibujo en la foto
+
+El pin les manda señales analogicas la señal pasa por los actuadores que transforman energia eléctrica en mecanica circular y al salir por el - llega a gnd por medio de la proto
+
+
+¿Cuál es el principio de funcionamiento del componente?
+Transformar señales eléctricas en energía mecanica circular.
+¿Utiliza alguna librería particular para programarlo?
+NO
+¿Cómo se interpreta el dato de entrada o salida del componente en el programa?
+0=0% de capacidad
+255= 100% de capacidad
+¿Qué limitaciones o precauciones eléctricas hay que tener en cuenta?
+El amperaje es limitado para no explotar todo hay que limitar las revoluciones si se quiere evitar el uso de más componentes
+¿Cómo verificamos que el componente funciona correctamente antes de incorporarlo al proyecto final?
+Le meto un valor por monitor que equivale al valor sobre 255 de rendimiento del actuador y verifico
+Simular en Tinkercad e incluir el link de la simulación. 
+https://www.tinkercad.com/things/jP893GOnyaO-tp-whity-arduino/editel?returnTo=%2Fthings%2FjP893GOnyaO-tp-whity-arduino
+
+ya incluye el funcionamiento real
+En caso de aplicar, ¿qué valor o lectura esperás obtener en la simulación si el componente funciona correctamente?
+Si tengo la linea(se simula con el potenciometro) a la derecha/izquierda del robot, se disminuye la velocidad del motor derecho/izquierdo para girar a la derechaizquierda
+
+La velocidad base se disminuye a medida que el US detecta obstaculos a menos distancia
+
+
+¿Cómo podría fallar el componente o cómo detectarías un mal funcionamiento en el código o en el circuito?
+Si gira muy lento o muy despacio significa que hubo o un problema de conexion o un problema de valores.

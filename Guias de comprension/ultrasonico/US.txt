@@ -1,0 +1,46 @@
+Sensor Ultrasonico
+
+Nombre del componente: (Sensor utlrasonico)
+¿Qué tipo de dispositivo es (sensor o actuador)? Explicá brevemente su función principal.
+El sensor ultrasónico es un sensor. Su función principal es medir la distancia entre el auto y un obstáculo que tenga delante. En el proyecto, sirve para detectar si hay un objeto cerca y, cuando eso ocurre, hace que el buzzer se encienda y el auto se detenga.
+¿Qué tipo de señal utiliza para comunicarse con Arduino?
+Utiliza señales digitales. Envía un pulso ultrasónico y mide el tiempo que tarda en regresar al sensor; el Arduino convierte ese tiempo en una distancia en centímetros.
+¿Cuál es el rango de valores que puede entregar o recibir el componente?
+El sensor ultrasónico puede medir distancias aproximadamente entre 2 cm y 400 cm (4 metros).
+El valor que entrega al Arduino es un número que representa esa distancia en centímetros o milisegundos según cómo se programe.
+¿Qué pines de conexión tiene el componente? Ennumerar y describir su función.
+VCC se conecta a 5V del Arduino para alimentar el sensor.
+GND se conecta al pin GND del Arduino para cerrar el circuito.
+TRIG es la entrada de disparo. El Arduino envía desde aca una señal para que el sensor emita un pulso ultrasónico.
+ECHO es la salida del sensor. Devuelve al Arduino el tiempo que tardó el eco del sonido en volver.
+
+
+¿Qué pin o pines de Arduino utilizan para conectarlo? ¿Por qué elegiste esos pines?
+Usamos el pin 9 del Arduino para el TRIG y el pin 10 para el ECHO.
+Se eligen pines digitales porque el sensor envía y recibe pulsos digitales, y esos pines permiten controlar el tiempo de los pulsos con precisión.
+Dibujá y explicá brevemente el esquema de conexión del componente con Arduino (incluyendo resistencias si son necesarias).
+
+trig conectado a d2, echo a d3, trig2 a d7  echo2 a d8, los gnd a -proto(a gnd arduino), los vcc a +proto(a 5v arduino)
+¿Cuál es el principio de funcionamiento del componente?
+El sensor ultrasónico envía señales ultrasónicas para medir donde esta el obstaculo, cuando la señal vuelve dependiendo cuanto tiempo tardo en ir y volver, el arduino saca la distancia entre el auto y obstáculo
+Si cualquier sensor detecta algo, se va frenando el motor y va encendiendose el buzzer
+¿Utiliza alguna librería particular para programarlo?
+	No, para el sensor ultrasónico no se necesitan librerías.
+¿Cómo se interpreta el dato de entrada o salida del componente en el programa?
+El arduino mide el tiempo que tardó la señal en ir y volver, luego eso lo convierte en distancia.
+duracion entre pulso y recepcion * 0.034(vel sonido) / 2(ida y vuelta)
+¿Qué limitaciones o precauciones eléctricas hay que tener en cuenta?
+Debe conectarse correctamente a 5V. Hay que evitar exponerse a la humedad, golpearlo o conectarlo al revés.
+¿Cómo verificamos que el componente funciona correctamente antes de incorporarlo al proyecto final?
+Decirle que imprima la distancia en el monitor
+Simular en Tinkercad e incluir el link de la simulación.
+https://www.tinkercad.com/things/jP893GOnyaO-tp-whity-arduino/editel?returnTo=%2Fthings%2FjP893GOnyaO-tp-whity-arduino
+
+
+aca esta con todo
+
+
+En caso de aplicar, ¿qué valor o lectura esperás obtener en la simulación si el componente funciona correctamente?
+Si el sensor funciona correctamente, este disminuye la velocidad a 0.66 cuando la distancia sea menor a 3 metros, a 0.33 cuando sea menor a 2m y a 0 cuando sea menor a 1 metro. lo mismo pero inversamente con el buzzer, el cual esta en 100/255 a <3m, 200 a <2m y a 255 a <1m
+¿Cómo podría fallar el componente o cómo detectarías un mal funcionamiento en el código o en el circuito?
+Podria fallar con el una conexion errónea del trig y echo o una confusion de valores, o con una mala comprension de cómo toma la distancia el sensor. esto lo detectamos al principio con serialprint pero despues ya lo adaptamos completamente al buzzer y al motor a ver si se hacía lo que se deseaba.

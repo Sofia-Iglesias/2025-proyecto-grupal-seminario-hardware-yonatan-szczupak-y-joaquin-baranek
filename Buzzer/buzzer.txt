@@ -1,0 +1,38 @@
+buzzer
+
+Nombre del componente: (Buzzer)
+¿Qué tipo de dispositivo es (sensor o actuador)? Explicá brevemente su función principal.
+El buzzer es un actuador, su función principal es que al estar activado emite un pitido. En nuestro proyecto el buzzer se activará cuando el auto se encuentre con un obstáculo.
+¿Qué tipo de señal utiliza para comunicarse con Arduino?
+recibe una señal analogica, cuando se perciba un obstaculo con el US el  buzzer se irá activando
+¿Cuál es el rango de valores que puede entregar o recibir el componente?
+En nuestro caso el buzzer recibirá de 0 a 255 unidades
+¿Qué pines de conexión tiene el componente? Ennumerar y describir su función.
+Tiene dos pines de conexión. El negativo se conecta al GND vía proto y sirve para cerrar el circuito y permitir que fluya la corriente.
+El pin positivo lo conectamos a un pin analogico, este pin positivo tiene la función de recibir la corriente para que se active y emita el pitido el buzzer.
+¿Qué pin o pines de Arduino utilizan para conectarlo? ¿Por qué elegiste esos pines?
+Utilizamos dos pines del arduino para conectarlo, el GND para cerrar el circuito. También utilizamos el pin 5 del arduino que es analogico para poder controlar cuando el buzzer incrementa su capacidad utilizada.
+Dibujá y explicá brevemente el esquema de conexión del componente con Arduino (incluyendo resistencias si son necesarias).
+
+
+d5  vcc led gnd(led) -proto gnd(ard(
+¿Cuál es el principio de funcionamiento del componente?
+Transforma energia eléctrica en sonora
+¿Utiliza alguna librería particular para programarlo?
+No utiliza ninguna libreria
+¿Cómo se interpreta el dato de entrada o salida del componente en el programa?
+Cuando recibe la señal entre 0 y 255 varía  la intensidad en la q actua
+¿Qué limitaciones o precauciones eléctricas hay que tener en cuenta?
+Hay que tener en cuenta de conectar bien los pines de +  y - sin confundirlos.
+¿Cómo verificarías que el componente funciona correctamente antes de incorporarlo al proyecto final?
+Lo verificaría con tinkercad hasta que ya no me marque errores y funcione el proyecto.
+Simular en Tinkercad e incluir el link de la simulación.
+https://www.tinkercad.com/things/jP893GOnyaO-tp-whity-arduino/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard&sharecode=-fpWud3uUVptWBXsZNWMEX0q1_pJRyjLkwv4KzusQL4
+
+
+En caso de aplicar, ¿qué valor o lectura esperás obtener en la simulación si el componente funciona correctamente?
+Si la  distancia de a o b es menor a 3 metros se pone a 100/255, si está a menos de 2 metros se pone a 200 y si está a menos de 1 metro se pone a máxima
+
+
+¿Cómo podría fallar el componente o cómo detectarías un mal funcionamiento en el código o en el circuito?
+El buzzer puede fallar si está mal conectado, por ejemplo con el positivo y negativo invertidos, o si el pin del código no coincide con el del circuito.

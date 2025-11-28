@@ -1,0 +1,40 @@
+Sensor IR
+
+Nombre del componente: (Sensor IR)
+¿Qué tipo de dispositivo es (sensor o actuador)? Explicá brevemente su función principal.
+El sensor IR es un sensor. Su función principal es detectar la línea blanca en el piso para que el auto pueda seguir el recorrido. Cuando el sensor pasa sobre el color blanco, envía una señal distinta que el Arduino interpreta para girar el auto para ese lado.
+¿Qué tipo de señal utiliza para comunicarse con Arduino?
+Utiliza una señal digital, enviando los valores binarios (1) y (0)
+¿Cuál es el rango de valores que puede entregar o recibir el componente?
+El sensor recibe valores de encendido y apagado, y le envía al arduino la señal de (1) y (0)
+¿Qué pines de conexión tiene el componente? Ennumerar y describir su función.
+El pin VCC se conecta a 5v y alimenta el sensor.
+El pin GND se conecta a GND y cierra el circuito
+El pin Out se conecta a un pin digital, y es por donde se envía la señal del arduino. 
+¿Qué pin o pines de Arduino utilizan para conectarlo? ¿Por qué elegiste esos pines?
+Utilizamos tres pines: 5V y GND para la alimentación, y el pin digital 7 para recibir la señal del sensor IR. Se eligió un pin digital porque el sensor entrega una señal de tipo digital
+Dibujá y explicá brevemente el esquema de conexión del componente con Arduino (incluyendo resistencias si son necesarias).
+pin a d3 vcc a +proto(a 5v) gnd a -proto(a gnd)
+¿Cuál es el principio de funcionamiento del componente?
+	El PIR detecta refleccion infraroja
+¿Utiliza alguna librería particular para programarlo?
+No utiliza ninguna librería, para programarlo se utiliza (HIGH) o (LOW)
+¿Cómo se interpreta el dato de entrada o salida del componente en el programa?
+Si detecta la linea, el motor que le corresponda alpir se realientiza para girar
+
+
+¿Qué limitaciones o precauciones eléctricas hay que tener en cuenta?
+No hay que confundir los pines VCC y GND.
+¿Cómo verificarías que el componente funciona correctamente antes de incorporarlo al proyecto final?
+Un led se enciende cuando el pir detecta la linea
+Simular en Tinkercad e incluir el link de la simulación.
+https://www.tinkercad.com/things/hb3tZNRYsTw-surprising-jaiks-lappi/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard&sharecode=_Xyqk_kEjSNJpZ4wzQCXkdZ4f0zK2vPj0iDnqr-NRa8
+
+
+En caso de aplicar, ¿qué valor o lectura esperás obtener en la simulación si el componente funciona correctamente?
+El pir detecta digitalmente la pelotita, si la detecta, necesito un high para saber que motor realentizar
+¿Cómo podría fallar el componente o cómo detectarías un mal funcionamiento en el código o en el circuito?
+El sensor puede fallar si está mal conectado o si el pin digital no coincide con el del código. También puede dar falsas lecturas si hay luz intensa o si el objeto no refleja bien el infrarrojo. 
+
+
+por cuestiones de practicidad se reemplazó el IR por un potenciometro pero esperamos que se tenga en cuenta la intención de hacerlo con PIR, que resulta imposible ya que en la práctica, que un pir esté activado imlicaria que el otro no lo esté y eso no  es posible en tinkercad.

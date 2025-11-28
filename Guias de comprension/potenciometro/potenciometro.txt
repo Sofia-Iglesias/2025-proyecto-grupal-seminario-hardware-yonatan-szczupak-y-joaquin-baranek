@@ -1,0 +1,40 @@
+
+
+potenciometro
+
+Nombre del componente: potenciometro
+¿Qué tipo de dispositivo es (sensor o actuador)? Explicá brevemente su función principal.
+En nuestro caso, el potenciometro actua como sensor simulando el rol del PIR que explicamos porque no fue posible utilizar. suele ser utilizado para regular la potencia que recibe el ecuador pero nosotros lo utilizamos más para sentido de direccion de modo que la aguja apunta a lo que seria la linea
+¿Qué tipo de señal utiliza para comunicarse con Arduino?
+utiliza señal analogica
+¿Cuál es el rango de valores que puede entregar o recibir el componente?
+1/1023
+¿Qué pines de conexión tiene el componente? Ennumerar y describir su función.
+VCC (polo positivo alimentacion)
+GND cable a tierra
+Señal (envia el valor al pin)
+¿Qué pin o pines de Arduino utilizan para conectarlo? ¿Por qué elegiste esos pines?
+utilizamos GND(para cerrar, 5v(para alimentar) y A0(porque es entrada analogica)
+Dibujá y explicá brevemente el esquema de conexión del componente con Arduino (incluyendo resistencias si son necesarias).
+
+5v vcc
+-gnd proto gnd (potenciometro)
+-pin(pot) a0
+¿Cuál es el principio de funcionamiento del componente?
+Convertir la posicion del eje en una resistencia variable ajustando la potencia que recibe el  elemento conectado en serie. 
+¿Utiliza alguna librería particular para programarlo?
+no
+¿Cómo se interpreta el dato de entrada o salida del componente en el programa?
+se saca (la distancia entre 880(máximo izquierda) y la aguja)/ la distancia entre la aguja y 184(maximo derecha). Esto lo que te da es el ratio de velocidad izq:dcha. Si este es mayor a 1, dividis a la velocidad del motor derecho por  el cociente para que gire para la derecha al avanzar mas lento con ese motor. si es menor a 1, multimplica el valor por la velocidad del izquierdo para girar para la izquierda
+¿Qué limitaciones o precauciones eléctricas hay que tener en cuenta?
+el valor no puede pasar de 880 o no llegar a 184
+¿Cómo verificamos que el componente funciona correctamente antes de incorporarlo al proyecto final?
+imprimir el cociente en monitor
+Simular en Tinkercad e incluir el link de la simulación.
+https://www.tinkercad.com/things/jP893GOnyaO-tp-whity-arduino/editel?returnTo=%2Fthings%2FjP893GOnyaO-tp-whity-arduino
+
+En caso de aplicar, ¿qué valor o lectura esperás obtener en la simulación si el componente funciona correctamente?
+si fijo el eje a la derecha/izquierda se ralentiza en motor derecho/izquierdo
+¿Cómo podría fallar el componente o cómo detectarías un mal funcionamiento en el código o en el circuito?
+conectando a un pin digital
+para debuguear siempre prefiero imprimir los valores para ver donde falla la logica
